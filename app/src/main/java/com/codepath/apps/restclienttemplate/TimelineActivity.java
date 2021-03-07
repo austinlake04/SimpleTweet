@@ -94,6 +94,11 @@ public class TimelineActivity extends AppCompatActivity {
             // Get data from the intent (tweet)
             Tweet tweet = Parcels.unwrap(data.getParcelableExtra("tweet"));
             // Update the RV with the tweet
+            tweets.add(0,tweet);
+            // update the adapter
+            adapter.notifyItemInserted(0);
+            rvTweets.smoothScrollToPosition(0);
+
         }
         super.onActivityResult(requestCode, resultCode, data);
     }
